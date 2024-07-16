@@ -1,8 +1,8 @@
 # Hybrid Concept-based Models
 
-This is the working repository for my (Tobias Opsahl's) master thesis in Data Science from the University of Oslo, defended January 31 2024. The thesis can be downloaded [here](https://www.duo.uio.no/handle/10852/110048). This repository is made public in order to easily verify the experiments from the thesis. In order to load the code as it was in the state of the thesis delivery (December 15th 2023), please use the tag `v1.0-thesis`. The code has been slightly updated to have better documentation, formatting and readability, while no significant change to the code has been done. It is therefore recommended to use the current version of the repository instead.
+Repository for the article `Achieving Data Efficient Neural Networks with Hybrid Concept-based Models`
 
-For the ConceptShapes datasets, please go to the [ConceptShapes repository](https://github.com/Tobias-Opsahl/ConceptShapes). It has been updated with better documentation and flexibility for the user. The ConceptShapes datasets were used in the thesis as part of this code, and are therefore kept here for reproducibility.
+For the ConceptShapes datasets, see the folder `ConceptShapes`.
 
 ## Overview
 
@@ -16,7 +16,7 @@ Here is a brief overview over the sections in this README.md.
 
 ## Summary
 
-The main contributions from the thesis that this repository provides code for are listed below.
+The main contributions from the article that this repository provides code for are listed below.
 
 ### 1) Hybrid Concept-based Models
 
@@ -34,7 +34,7 @@ The other model predicts the concepts sequentially through the layers, instead o
 
 ### 2) ConceptShapes
 
-The thesis argues that current concept datasets has various shortcomings, so in order to properly benchmark the models, we propose our own class of synthetic concept datasets, called *ConceptShapes*. The amount of classes, concepts, and relationship between concepts and classes can be adjusted by the user. Datasets can be quickly generated, or downloaded from the [releases](https://github.com/Tobias-Opsahl/ConceptShapes/releases). We made a separate repository explaining the datasets in detail, along with the most user-friendly documentation and code to generate, process and load the data, which can be [found here](https://github.com/Tobias-Opsahl/ConceptShapes).
+The article argues that current concept datasets has various shortcomings, so in order to properly benchmark the models, we propose our own class of synthetic concept datasets, called *ConceptShapes*. The amount of classes, concepts, and relationship between concepts and classes can be adjusted by the user. Please see `ConceptShapes/` for more information.
 
 ### 3) Adversarial Concept Attacks
 
@@ -80,7 +80,7 @@ and **Python** version 3.10.12.
 
 ### ConceptShapes
 
-ConceptShapes is a flexible synthetic class of concept datasets, originally proposed in this Thesis. It provides an easy way to generate datasets with concept labels, where the user can choose the amount of classes, amount of concepts and the relationship between them. Many versions of the datasets were used in the experiments in the thesis. The code for creating the datasets is provided in this repository, but we recommend to use [this updated](https://github.com/Tobias-Opsahl/ConceptShapes) repository, or download from its releases. See the README.md there for more information about the datasets.
+ConceptShapes is a flexible synthetic class of concept datasets, originally proposed in this article. It provides an easy way to generate datasets with concept labels, where the user can choose the amount of classes, amount of concepts and the relationship between them. Many versions of the datasets were used in the experiments in the article.
 
 All of the ConceptShapes datasets are light and can be trained and evaluated on an ordinary laptop's CPU in a couple of minutes. Please put the datasets in the `data/shapes/` folder, illustrated in `File Structure`.
 
@@ -100,7 +100,7 @@ This will loop over the processed data table and change the absolute paths to re
 
 ## File Structure
 
-Most of the source code is saved in `src/`, while the data should be saved in `data/`. For running experiments, please use `run_cub.py` and `run_shapes.py` with command line arguments, explained in the section `Example Runs`. Below is an overview of the filetree. The file `run_make_datasets_shapes.py` was originally used to make the ConceptShapes datasets, but we recommend to use [this repo](https://github.com/Tobias-Opsahl/ConceptShapes) instead.
+Most of the source code is saved in `src/`, while the data should be saved in `data/`. For running experiments, please use `run_cub.py` and `run_shapes.py` with command line arguments, explained in the section `Example Runs`. Below is an overview of the filetree. The file `run_make_datasets_shapes.py` was originally used to make the ConceptShapes datasets, but we recommend using the `ConceptShapes/` folder instead.
 
 ```filetree
 data/
@@ -137,7 +137,7 @@ run_shapes.py
 
 ## How to Run the Code
 
-Once the desired dataset is downloaded and the dependecies are installed, the code can be run. The code is run by either running `python run_shapes.py` or `python run_cub.py` with command line arguments explained below, which runs experiments on ConceptShapes and CUB, respectively. The file `run_make_datasets_shapes.py` was used for generating the ConceptShapes datasets, but we once again refer to [this repository](https://github.com/Tobias-Opsahl/ConceptShapes) for better documentation and code. Please run the files with `-h` to see the full list of command line arguments.
+Once the desired dataset is downloaded and the dependecies are installed, the code can be run. The code is run by either running `python run_shapes.py` or `python run_cub.py` with command line arguments explained below, which runs experiments on ConceptShapes and CUB, respectively. The file `run_make_datasets_shapes.py` was used for generating the ConceptShapes datasets.
 
 ConceptShapes can be run on an ordinary laptop's CPU, but we recommend using a GPU when using the full CUB dataset.
 
@@ -230,8 +230,6 @@ python run_shapes.py --run_adversarial_attack --n_classes 10 --n_attr 9 --signal
 ```cli
 python run_cub.py --run_adversarial_attacks --train_model --epsilon 0.1 --alpha 0.001 --max_images 10 --logging_level debug --num_workers 2 --persistent_workers --pin_memory --non_blocking
 ```
-
-![no gif :(](https://media.giphy.com/media/mcsPU3SkKrYDdW3aAU/giphy.gif)
 
 ### Error Messages
 
