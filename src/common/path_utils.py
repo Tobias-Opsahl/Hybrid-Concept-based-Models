@@ -168,7 +168,7 @@ def get_shapes_dataset_path(n_classes, n_attr, signal_strength, check_already_ex
     else:
         base_folder_name = Path("shapes_1k_")
 
-    signal_string = "" if signal_strength == 98 else f"_s{signal_strength}"
+    signal_string = f"_s{signal_strength}"
     folder_name = Path(f"{base_folder_name}c{n_classes}_a{n_attr}{signal_string}/")
     dataset_path = base_path / folder_name
     if check_already_exists:
